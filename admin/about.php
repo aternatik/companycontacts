@@ -1,6 +1,6 @@
 <?php
 /* <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) <year>  <name of author>
+ * Copyright (C) 2013  Jean-François Ferry <jfefe@aternatik.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 /**
  * 	\file		admin/about.php
- * 	\ingroup	mymodule
+ * 	\ingroup	companycontacts
  * 	\brief		This file is an example about page
  * 				Put some comments here
  */
@@ -31,14 +31,14 @@ if (! $res) {
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
-require_once '../lib/mymodule.lib.php';
+require_once '../lib/companycontacts.lib.php';
 
-dol_include_once('/mymodule/lib/php-markdown/markdown.php');
+dol_include_once('/companycontacts/lib/php-markdown/markdown.php');
 
 
 //require_once "../class/myclass.class.php";
 // Translations
-$langs->load("mymodule@mymodule");
+$langs->load("companycontacts@companycontacts");
 
 // Access control
 if (! $user->admin) {
@@ -55,7 +55,7 @@ $action = GETPOST('action', 'alpha');
 /*
  * View
  */
-$page_name = "MyModuleAbout";
+$page_name = "CompanycontactAbout";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -64,26 +64,26 @@ $linkback = '<a href="' . DOL_URL_ROOT . '/admin/modules.php">'
 print_fiche_titre($langs->trans($page_name), $linkback);
 
 // Configuration header
-$head = mymoduleAdminPrepareHead();
+$head = companycontactsAdminPrepareHead();
 dol_fiche_head(
     $head,
     'about',
     $langs->trans("Module10000Name"),
     0,
-    'mymodule@mymodule'
+    'companycontacts@companycontacts'
 );
 
 // About page goes here
-echo $langs->trans("MyModuleAboutPage");
+echo $langs->trans("CompanycontactAboutPage");
 
 echo '<br>';
 
-$buffer = file_get_contents(dol_buildpath('/mymodule/README.md', 0));
+$buffer = file_get_contents(dol_buildpath('/companycontacts/README.md', 0));
 echo Markdown($buffer);
 
 echo '<br>',
-'<a href="' . dol_buildpath('/mymodule/COPYING', 1) . '">',
-'<img src="' . dol_buildpath('/mymodule/img/gplv3.png', 1) . '"/>',
+'<a href="' . dol_buildpath('/companycontacts/COPYING', 1) . '">',
+'<img src="' . dol_buildpath('/companycontacts/img/gplv3.png', 1) . '"/>',
 '</a>';
 
 llxFooter();

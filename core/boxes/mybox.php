@@ -1,6 +1,6 @@
 <?php
 /* <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) <year>  <name of author>
+ * Copyright (C) 2013  Jean-François Ferry <jfefe@aternatik.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 /**
  * 	\file		core/boxes/mybox.php
- * 	\ingroup	mymodule
+ * 	\ingroup	companycontacts
  * 	\brief		This file is a sample box definition file
  * 				Put some comments here
  */
@@ -31,9 +31,9 @@ class mybox extends ModeleBoxes
 {
 
     public $boxcode = "mybox";
-    public $boximg = "mymodule@mymodule";
+    public $boximg = "companycontacts@companycontacts";
     public $boxlabel;
-    public $depends = array("mymodule");
+    public $depends = array("companycontacts");
     public $db;
     public $param;
     public $info_box_head = array();
@@ -62,7 +62,7 @@ class mybox extends ModeleBoxes
 
         $this->max = $max;
 
-        //include_once DOL_DOCUMENT_ROOT . "/mymodule/class/mymodule.class.php";
+        //include_once DOL_DOCUMENT_ROOT . "/companycontacts/class/companycontacts.class.php";
 
         $text = $langs->trans("MyBoxDescription", $max);
         $this->info_box_head = array(

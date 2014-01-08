@@ -1,6 +1,6 @@
 <?php
 /* <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) <year>  <name of author>
+ * Copyright (C) 2013  Jean-François Ferry <jfefe@aternatik.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 /**
  * 	\file		core/triggers/interface_99_modMyodule_Mytrigger.class.php
- * 	\ingroup	mymodule
+ * 	\ingroup	companycontacts
  * 	\brief		Sample trigger
  * 	\remarks	You can create other triggers by copying this one
  * 				- File name should be either:
@@ -54,7 +54,7 @@ class InterfaceMytrigger
             . "They are provided for tutorial purpose only.";
         // 'development', 'experimental', 'dolibarr' or version
         $this->version = 'development';
-        $this->picto = 'mymodule@mymodule';
+        $this->picto = 'companycontacts@companycontacts';
     }
 
     /**

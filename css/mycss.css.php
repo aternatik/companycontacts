@@ -1,6 +1,6 @@
 <?php
 /* <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) <year>  <name of author>
+ * Copyright (C) 2013  Jean-François Ferry <jfefe@aternatik.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 /**
  *	\file		css/mycss.css.php
- *	\ingroup	mymodule
+ *	\ingroup	companycontacts
  *	\brief		This file is an example css file
  *				Put some comments here
  */

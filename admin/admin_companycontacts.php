@@ -1,6 +1,6 @@
 <?php
 /* <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) <year>  <name of author>
+ * Copyright (C) 2013  Jean-François Ferry <jfefe@aternatik.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,8 +17,8 @@
  */
 
 /**
- * 	\file		admin/mymodule.php
- * 	\ingroup	mymodule
+ * 	\file		admin/companycontacts.php
+ * 	\ingroup	companycontacts
  * 	\brief		This file is an example module setup page
  * 				Put some comments here
  */
@@ -31,10 +31,10 @@ if (! $res) {
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
-require_once '../lib/mymodule.lib.php';
+require_once '../lib/companycontacts.lib.php';
 //require_once "../class/myclass.class.php";
 // Translations
-$langs->load("mymodule@mymodule");
+$langs->load("companycontacts@companycontacts");
 
 // Access control
 if (! $user->admin) {
@@ -51,7 +51,7 @@ $action = GETPOST('action', 'alpha');
 /*
  * View
  */
-$page_name = "MyModuleSetup";
+$page_name = "CompanycontactSetup";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -60,17 +60,17 @@ $linkback = '<a href="' . DOL_URL_ROOT . '/admin/modules.php">'
 print_fiche_titre($langs->trans($page_name), $linkback);
 
 // Configuration header
-$head = mymoduleAdminPrepareHead();
+$head = companycontactsAdminPrepareHead();
 dol_fiche_head(
     $head,
     'settings',
     $langs->trans("Module10000Name"),
     0,
-    "mymodule@mymodule"
+    "companycontacts@companycontacts"
 );
 
 // Setup page goes here
-echo $langs->trans("MyModuleSetupPage");
+echo $langs->trans("CompanycontactSetupPage");
 
 llxFooter();
 

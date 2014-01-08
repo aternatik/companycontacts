@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 /* <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) <year>  <name of author>
+ * Copyright (C) 2013  Jean-François Ferry <jfefe@aternatik.fr>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 
 /**
  *	\file		scripts/myscript.php
- *	\ingroup	mymodule
+ *	\ingroup	companycontacts
  *	\brief		This file is an example command line script
  *				Put some comments here
  */
@@ -75,7 +75,7 @@ $db->begin();
 
 
 // Examples for manipulating class skeletonclass
-require_once DOL_DOCUMENT_ROOT . "/mymodule/myclass.class.php";
+require_once DOL_DOCUMENT_ROOT . "/companycontacts/myclass.class.php";
 $myobject = new SkeletonClass($db);
 
 // Example for inserting creating object in database
