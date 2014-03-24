@@ -28,7 +28,7 @@ include_once DOL_DOCUMENT_ROOT . "/core/modules/DolibarrModules.class.php";
 /**
  * Description and activation class for module Companycontact
  */
-class modCompanycontact extends DolibarrModules
+class modCompanycontacts extends DolibarrModules
 {
 
     /**
@@ -51,7 +51,7 @@ class modCompanycontact extends DolibarrModules
 
         // Family can be 'crm','financial','hr','projects','products','ecm','technic','other'
         // It is used to group modules in module setup page
-        $this->family = "other";
+        $this->family = "crm";
         // Module label (no space allowed)
         // used if translation string 'ModuleXXXName' not found
         // (where XXX is value of numeric property 'numero' of module)
@@ -59,15 +59,15 @@ class modCompanycontact extends DolibarrModules
         // Module description
         // used if translation string 'ModuleXXXDesc' not found
         // (where XXX is value of numeric property 'numero' of module)
-        $this->description = "Description of module Companycontact";
+        $this->description = "Add a link between one contact and several companies";
         // Possible values for version are: 'development', 'experimental' or version
-        $this->version = 'development';
+        $this->version = '0.2';
         // Key used in llx_const table to save module status enabled/disabled
         // (where MYMODULE is value of property name of module in uppercase)
         $this->const_name = 'MAIN_MODULE_' . strtoupper($this->name);
         // Where to store the module in setup page
         // (0=common,1=interface,2=others,3=very specific)
-        $this->special = 3;
+        $this->special = 0;
         // Name of image file used for this module.
         // If file is in theme/yourtheme/img directory under name object_pictovalue.png
         // use this->picto='pictovalue'
@@ -92,9 +92,9 @@ class modCompanycontact extends DolibarrModules
             // Set this to 1 if module has its own models directory
             //'models' => 0,
             // Set this to relative path of css if module has its own css file
-            'css' => '/companycontacts/css/mycss.css.php',
+            //'css' => '/companycontacts/css/mycss.css.php',
             // Set here all hooks context managed by module
-            //'hooks' => array('hookcontext1','hookcontext2')
+            'hooks' => array('companycontacts')
             // Set here all workflow context managed by module
             //'workflow' => array('order' => array('WORKFLOW_ORDER_AUTOCREATE_INVOICE'))
         );
@@ -105,7 +105,7 @@ class modCompanycontact extends DolibarrModules
 
         // Config pages. Put here list of php pages
         // stored into companycontacts/admin directory, used to setup module.
-        $this->config_page_url = array("admin_companycontacts.php@companycontacts");
+        //$this->config_page_url = array("admin_companycontacts.php@companycontacts");
 
         // Dependencies
         // List of modules id that must be enabled if this module is enabled
@@ -115,7 +115,7 @@ class modCompanycontact extends DolibarrModules
         // Minimum version of PHP required by module
         $this->phpmin = array(5, 3);
         // Minimum version of Dolibarr required by module
-        $this->need_dolibarr_version = array(3, 2);
+        $this->need_dolibarr_version = array(3, 4);
         $this->langfiles = array("companycontacts@companycontacts"); // langfiles@companycontacts
         // Constants
         // List of particular constants to add when module is enabled
@@ -142,7 +142,7 @@ class modCompanycontact extends DolibarrModules
         // Example:
         $this->tabs = array(
             //	// To add a new tab identified by code tabname1
-            //	'objecttype:+tabname1:Title1:langfile@companycontacts:$user->rights->companycontacts->read:/companycontacts/mynewtab1.php?id=__ID__',
+            'thirdparty:+companycontacts:ContactsLinked:companycontacts@companycontacts:$user->rights->companycontacts->read:/companycontacts/company_contacts.php?socid=__ID__'
             //	// To add another new tab identified by code tabname2
             //	'objecttype:+tabname2:Title2:langfile@companycontacts:$user->rights->othermodule->read:/companycontacts/mynewtab2.php?id=__ID__',
             //	// To remove an existing tab identified by code tabname
@@ -217,7 +217,7 @@ class modCompanycontact extends DolibarrModules
         $r = 0;
         // Example:
 
-        $this->boxes[$r][1] = "MyBox@companycontacts";
+        //$this->boxes[$r][1] = "MyBox@companycontacts";
         $r ++;
         /*
           $this->boxes[$r][1] = "myboxb.php";
@@ -244,6 +244,27 @@ class modCompanycontact extends DolibarrModules
         //// if ($user->rights->permkey->level1->level2)
         //$this->rights[$r][5] = 'level2';
         //$r++;
+
+        $this->rights[$r][0] = 110501;
+        $this->rights[$r][1] = 'Read link between contacts and companies';
+        $this->rights[$r][3] = 1;
+        $this->rights[$r][4] = 'read';
+        $r++;
+
+        $this->rights[$r][0] = 110502;
+        $this->rights[$r][1] = 'Add/edit link between contacts and companies';
+        $this->rights[$r][3] = 0;
+        $this->rights[$r][4] = 'write';
+        $r++;
+
+        $this->rights[$r][0] = 110503;
+        $this->rights[$r][1] = 'Delete link between contacts and companies';
+        $this->rights[$r][3] = 0;
+        $this->rights[$r][4] = 'delete';
+        $r++;
+
+
+
         // Main menu entries
         $this->menus = array(); // List of menus to add
         $r = 0;
