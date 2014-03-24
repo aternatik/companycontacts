@@ -38,3 +38,10 @@ MyModuleSetupPage = Page de réglage de mon module
 About = À propos
 MyModuleAbout = À propos de mon module
 MyModuleAboutPage = Page à propos de mon module
+
+ContactsLinked=Contacts liés
+LinkAContact=Lier un contact
+ListOfContactsLinked=Liste des contacts liés
+ContactLinkedWithCompanySuccessfully=Contact lié avec succès
+ContactCompanyLinkDeletedWithSuccess=Suppression de la liaison effectuée
+ContactCompanyLinkUpdated=Mise à jour de la liaison

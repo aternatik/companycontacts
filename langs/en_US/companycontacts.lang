@@ -38,3 +38,10 @@ MyModuleSetupPage = My module setup page
 About = About
 MyModuleAbout = About my module
 MyModuleAboutPage = My module about page
+
+ContactsLinked=Linked contacts
+LinkAContact=Link a contact
+ListOfContactsLinked=Linked contacts list
+ContactLinkedWithCompanySuccessfully=Contact sucessfully linked
+ContactCompanyLinkDeletedWithSuccess=Contact link successfully deleted
+ContactCompanyLinkUpdated=Link updated

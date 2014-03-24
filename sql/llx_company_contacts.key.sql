@@ -13,3 +13,8 @@
 --
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ALTER TABLE llx_company_contacts ADD INDEX idx_company_contacts_fk_soc (fk_soc);
+ALTER TABLE llx_company_contacts ADD INDEX idx_company_contacts_fk_contact (fk_contact);
+
+ALTER TABLE llx_company_contacts ADD CONSTRAINT fk_company_contacts_fk_soc    FOREIGN KEY (fk_soc)    REFERENCES llx_societe (rowid);
+ALTER TABLE llx_company_contacts ADD CONSTRAINT fk_company_contacts_fk_user    FOREIGN KEY (fk_contact)    REFERENCES llx_socpeople (rowid);
